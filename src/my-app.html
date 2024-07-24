@@ -1,0 +1,26 @@
+<template>
+    <div class="container-fluid p-2">
+        <div class="row">
+            <div class="col-6">
+                <h3>Rich Text</h3>
+                <div id="rich-text-input" class="form-control annotation-input"></div>
+                <button class="button button-primary" click.trigger="convertToMarkdown()">Convert to Markdown</button>
+            </div>
+            <div class="col-6">
+                <h3>Markdown</h3>
+                <div innerhtml.bind="markdownContent"></div>
+
+                <section class="mt-3">
+                    <h3>Raw Markdown</h3>
+                    <pre>${rawMarkdown}</pre>
+                    <textarea class="form-control annotation-input" rows="10" value.bind="rawMarkdown"></textarea>
+                </section>
+            </div>
+        </div>
+        <!-- <div class="row mt-5">
+            <div id="univer-container" style="height: 500px; width: 100%;">
+                <div id="univer-sheet" style="height: 100%; width: 100%;"></div>
+            </div>
+        </div> -->
+    </div>
+</template>
