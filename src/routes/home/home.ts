@@ -6,7 +6,7 @@ import TurndownService from 'turndown';
 
 
 
-export class MyApp {
+export class Home {
 	public message = 'Hello World!';
 	private quill: Quill;
 
@@ -105,10 +105,10 @@ export class MyApp {
 					.replace(/\n+$/, '\n')
 					.replace(/\n/gm, '\n    ');
 				let prefix = options.bulletListMarker + ' ';
-				let parent = node.parentNode;
+				const parent = node.parentNode;
 				if (parent.nodeName === 'OL') {
-					let start = parent.getAttribute('start');
-					let index = Array.prototype.indexOf.call(parent.children, node);
+					const start = parent.getAttribute('start');
+					const index = Array.prototype.indexOf.call(parent.children, node);
 					prefix = (start ? Number(start) + index : index + 1) + '. ';
 				}
 				return prefix + content + (node.nextSibling && !/\n$/.test(content) ? '\n' : '');
@@ -118,7 +118,7 @@ export class MyApp {
 		this.turndownService.addRule('list', {
 			filter: ['ul', 'ol'],
 			replacement: function (content, node) {
-				let parent = node.parentNode;
+				const parent = node.parentNode;
 				if (parent.nodeName === 'LI' && parent.lastElementChild === node) {
 					return '\n' + content;
 				} else {
